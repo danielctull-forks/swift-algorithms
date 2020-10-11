@@ -17,4 +17,9 @@ final class ScanTests: XCTestCase {
     XCTAssertEqualSequences((1...5).scan(0, +), [1, 3, 6, 10, 15])
     XCTAssertEqualSequences([3, 4, 2, 3, 1].scan(.max, min), [3, 3, 2, 2, 1])
   }
+
+  func testInclusiveScan() {
+    XCTAssertEqualSequences((1...5).inclusiveScan(0, +), [0, 1, 3, 6, 10, 15])
+    XCTAssertEqualSequences([3, 4, 2, 3, 1].inclusiveScan(.max, min), [.max, 3, 3, 2, 2, 1])
+  }
 }

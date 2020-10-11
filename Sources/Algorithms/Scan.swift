@@ -58,6 +58,13 @@ extension Sequence {
   ///   - transform: A closure that combines an accumulating value and
   ///     an element of the sequence.
   /// - Returns: A sequence of transformed elements.
+  public func inclusiveScan<Result>(
+    _ initial: Result,
+    _ transform: @escaping (Result, Element) -> Result
+  ) -> Chain<[Result], Scan<Result, Self>> {
+    [initial].chained(with: Scan(base: self, initial: initial, transform: transform))
+  }
+
   public func scan<Result>(
     _ initial: Result,
     _ transform: @escaping (Result, Element) -> Result
