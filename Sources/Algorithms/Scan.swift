@@ -61,8 +61,8 @@ extension Sequence {
   public func inclusiveScan<Result>(
     _ initial: Result,
     _ transform: @escaping (Result, Element) -> Result
-  ) -> Chain<[Result], Scan<Result, Self>> {
-    [initial].chained(with: Scan(base: self, initial: initial, transform: transform))
+  ) -> Chain2<[Result], Scan<Result, Self>> {
+    chain([initial], Scan(base: self, initial: initial, transform: transform))
   }
 
   public func scan<Result>(
