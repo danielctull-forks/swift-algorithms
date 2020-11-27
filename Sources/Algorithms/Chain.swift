@@ -273,6 +273,12 @@ extension Chain2: BidirectionalCollection
 extension Chain2: RandomAccessCollection
   where Base1: RandomAccessCollection, Base2: RandomAccessCollection {}
 
+extension Chain2: LazySequenceProtocol
+  where Base1: LazySequenceProtocol, Base2: LazySequenceProtocol {}
+
+extension Chain2: LazyCollectionProtocol
+  where Base1: LazyCollectionProtocol, Base2: LazyCollectionProtocol {}
+
 extension Chain2: Equatable where Base1: Equatable, Base2: Equatable {}
 extension Chain2: Hashable where Base1: Hashable, Base2: Hashable {}
 

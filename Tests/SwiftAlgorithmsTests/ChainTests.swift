@@ -68,4 +68,9 @@ final class ChainTests: XCTestCase {
       XCTAssertNil(j)
     }
   }
+
+  func testChainLazy() {
+    XCTAssertLazySequence(chain((1...).prefix(10).lazy, (20...).lazy))
+    XCTAssertLazyCollection(chain("1".lazy, "2".lazy))
+  }
 }
