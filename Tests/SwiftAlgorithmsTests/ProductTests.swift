@@ -52,4 +52,9 @@ final class ProductTests: XCTestCase {
         } + [.init(i1: product.base1.endIndex, i2: product.base2.startIndex)]
       })
   }
+
+  func testChainLazy() {
+    XCTAssertLazySequence(product((1...).prefix(10).lazy, [1].lazy))
+    XCTAssertLazyCollection(product("1".lazy, "2".lazy))
+  }
 }

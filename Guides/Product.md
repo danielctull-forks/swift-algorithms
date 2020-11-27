@@ -37,10 +37,10 @@ We require `Collection` conformance for `Base2`, since it needs to be iterated
 over multiple times. `Base1`, by contrast, is only iterated over a single time,
 so it can be a sequence.
  
-The `Product2` type wraps the base sequence and collection, and acts as a
-sequence in the base case, upgrading to a collection, a bidirectional
-collection, and a random-access collection when both base collections have those
-conformances.
+The resulting `Product2` type is a sequence, with conditional conformance to
+`Collection`, `BidirectionalCollection`, `RandomAccessCollection`, 
+`LazySequenceProtocol`, and `LazyCollectionProtocol` when both `Base1` and
+`Base2` conform.
 
 We don't provide higher arities (like `Product3`, `Product4`, etc.) at this 
 time to match the standard library's `Zip2` type. Users can compose multiple
